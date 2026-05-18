@@ -24,32 +24,15 @@
       </header>
       <main class="main">
         <div class="toggle-all-container">
-          <input class="toggle-all" type="checkbox" />
+          <input class="toggle-all" id="toggle-all" type="checkbox" />
           <label class="toggle-all-label" for="toggle-all"
             >Mark all as complete</label
           >
         </div>
-        <ul class="todo-list">
-          <li data-id="1" class="completed">
-            <div class="view">
-              <input class="toggle" type="checkbox" />
-              <label>tache 1</label>
-              <button class="destroy"></button>
-            </div>
-            <input class="edit"/>
-          </li>
-          <li data-id="2" class="">
-            <div class="view">
-              <input class="toggle" type="checkbox" />
-              <label>tache 2</label>
-              <button class="destroy"></button>
-            </div>
-            <input class="edit"/>
-          </li>
-        </ul>
+        <ul class="todo-list"></ul>
       </main>
       <footer class="footer">
-        <span class="todo-count"></span>
+        <span class="todo-count"><span>0</span></span>
         <ul class="filters">
           <li>
             <a href="#/" class="selected">All</a>

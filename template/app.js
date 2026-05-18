@@ -61,3 +61,21 @@ notCompletedCountElement.innerText = todos.filter
     appendItemInArray(newItem);
     appendNEwItemInDom(newItem);
     });
+
+    // Capture par délégation pour les éléments présents et ajoutés
+
+    todosContainer.addEventListener('click', function (e){
+      const itemElement = e.target.closest('li')
+      const item = todos.find(item => item.id == itemElement.dataset.id);
+
+      if (e.taget.matches('toggle')){
+        // je gère l'array 
+        item.completed = !item.completed;
+        // je gère le DOM
+        itemElement.classList.toggle('completed');
+        updateLocalStorage();
+        renderNotCompletedCount();        
+
+      }
+
+    });

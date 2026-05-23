@@ -62,11 +62,15 @@ notCompletedCountElement.innerText = todos.filter
     appendNEwItemInDom(newItem);
     });
 
-    // Capture par délégation pour les éléments présents et ajoutés
+    // CAPTURE PAR DELEGATION POUR LES ELEMENTS PRESENTES ET AJOUTES
 
     todosContainer.addEventListener('click', function (e){
+      // je récupère l'item du DOM et de l'array correspondant à l'élément cliqué
       const itemElement = e.target.closest('li')
+      // je récupère l'itme de l'array correspondant à l'élément du DOM
       const item = todos.find(item => item.id == itemElement.dataset.id);
+
+      // TOGLE COMPLETED
 
       if (e.taget.matches('toggle')){
         // je gère l'array 
@@ -77,5 +81,14 @@ notCompletedCountElement.innerText = todos.filter
         renderNotCompletedCount();        
 
       }
+      if (e.target.matches('.destroy')){
+        const itemIndex = todos.findIndex(item => item.id == itemElement.dataset.id);
+        todos.splice(itemIndex, 1);
+        itemElement.remove();
+      
+        updateLocalStorage();
+        renderNotCompletedCount();
+      }
 
     });
+    
